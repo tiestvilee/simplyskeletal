@@ -1,0 +1,7 @@
+[buildfile]
+ includes = //build/basic.defs.py
+
+[java]
+ source_level = 8
+ target_level = 8
+ jar_spool_mode = direct_to_jar
