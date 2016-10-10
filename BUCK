@@ -1,20 +1,8 @@
-prebuilt_jar(
-  name = "kotlin-runtime",
-  binary_jar = "lib/runtime/kotlin-runtime-1.0.4.jar",
-  visibility = ['PUBLIC']
-)
 
-prebuilt_jar(
-  name = "kotlin-reflect",
-  binary_jar = "lib/runtime/kotlin-reflect-1.0.4.jar",
-  visibility = ['PUBLIC']
-)
-
-java_library(
-  name = "kotlin-deps",
-  visibility = ["PUBLIC"],
-  exported_deps = [":kotlin-reflect", ":kotlin-runtime"],
-)
+jar_group("kotlin")
+jar_group("utterlyidle", ["totallylazy", "yadic"])
+jar_group("jetty", ["javax.servlet-api"])
+jar_group("junit", ["javax.servlet-api"])
 
 prebuilt_jar(
   name = "junit",
