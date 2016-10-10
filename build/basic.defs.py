@@ -25,13 +25,13 @@ def kotlin(name, main_class, dependencies = []):
     visibility = ["PUBLIC"],
   )
 
-def jar_group(name, prefixes = None):
+def jar_group(name, prefixes = None, lib_type = "runtime"):
   deps = []
   if not prefixes:
     prefixes = []
   prefixes.append(name)
-  print prefixes
-  for file in gl.iglob("lib/runtime/*.jar"):
+
+  for file in gl.iglob("lib/{}/*.jar".format(lib_type)):
     filename = os.path.basename(file)
     if not filename.endswith("sources.jar"):
       for prefix in prefixes:
@@ -43,8 +43,6 @@ def jar_group(name, prefixes = None):
             binary_jar = file,
           )
 
-
-  print(deps)
   java_library(
     name = name + "-deps",
     visibility = ["PUBLIC"],
