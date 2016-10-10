@@ -4,14 +4,14 @@ def kotlin(name, main_class, dependencies = []):
     name = "{}-kotlin".format(name),
     srcs = glob(["src/main/**/*.kt"]),
     resources = glob(["src/main/**"], excludes = ["src/main/**/*.java", "src/main/**/*.kt"]),
-    exported_deps = dependencies + ["//:kotlin-deps"],
+    deps = dependencies + ["//:kotlin-deps"],
   )
 
   kotlin_test(
     name = "{}-kotlin-test".format(name),
     srcs = glob(["src/test/**/*.kt"]),
     resources = glob(["src/test/**"], excludes = ["src/test/**/*.java", "src/test/**/*.kt"]),
-    exported_deps = dependencies + ["//:test-deps", ":{}-kotlin".format(name)],
+    deps = dependencies + ["//:test-deps", ":{}-kotlin".format(name)],
   )
 
   java_binary(

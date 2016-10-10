@@ -2,4 +2,4 @@
 set -e
 
 bin/sm.sh lib lib
-buck run //proto:mono-app
+buck run //proto:proto-app
