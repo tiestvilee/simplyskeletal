@@ -1,4 +1,4 @@
-package org.tiestvilee.proto
+package org.tiestvilee.helloworld
 
 import com.googlecode.utterlyidle.Resources
 import com.googlecode.utterlyidle.Response

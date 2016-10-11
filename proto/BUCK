@@ -1,3 +1,3 @@
 add_build_file_dep("//BUCK")
 
-kotlin("proto", "org.tiestvilee.proto.ProtoLauncher", ["//:jetty-deps", "//:utterlyidle-deps"])
+kotlin("proto", "org.tiestvilee.proto.ProtoLauncher", ["//:jetty-deps", "//:utterlyidle-deps", "//helloworld:helloworld-kotlin"])

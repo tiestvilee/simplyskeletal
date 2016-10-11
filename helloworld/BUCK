@@ -1,0 +1,3 @@
+add_build_file_dep("//BUCK")
+
+kotlin("helloworld", None, ["//:utterlyidle-deps"])

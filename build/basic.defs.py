@@ -4,11 +4,13 @@ import re
 
 def kotlin(name, main_class, dependencies = []):
 
+  print(dependencies)
   kotlin_library(
     name = "{}-kotlin".format(name),
     srcs = glob(["src/main/**/*.kt"]),
     resources = glob(["src/main/**"], excludes = ["src/main/**/*.java", "src/main/**/*.kt"]),
     deps = dependencies + ["//:kotlin-deps"],
+    visibility = ["PUBLIC"],
   )
 
   kotlin_test(
@@ -21,7 +23,8 @@ def kotlin(name, main_class, dependencies = []):
   java_binary(
     name = "{}-app".format(name),
     main_class = main_class,
-    deps = [":{}-kotlin-test".format(name)],
+    deps = [":{}-kotlin".format(name)],
+    tests = [":{}-kotlin-test".format(name)],
     visibility = ["PUBLIC"],
   )
 
