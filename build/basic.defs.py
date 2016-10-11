@@ -4,12 +4,11 @@ import re
 
 def kotlin(name, main_class, dependencies = []):
 
-  print(dependencies)
   kotlin_library(
     name = "{}-kotlin".format(name),
     srcs = glob(["src/main/**/*.kt"]),
     resources = glob(["src/main/**"], excludes = ["src/main/**/*.java", "src/main/**/*.kt"]),
-    deps = dependencies + ["//:kotlin-deps"],
+    exported_deps = dependencies + ["//:kotlin-deps"],
     visibility = ["PUBLIC"],
   )
 

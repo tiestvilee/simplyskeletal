@@ -4,6 +4,7 @@ mvn://repo.bodar.com/com.googlecode.yadic:yadic:pack|sources:2.48
 mvn://repo.bodar.com/com.googlecode.utterlyidle:utterlyidle:pack|sources:2.107
 
 mvn:org.jetbrains.kotlin:kotlin-runtime:jar|sources:1.0.4
+mvn:org.jetbrains.kotlin:kotlin-stdlib:jar|sources:1.0.4
 mvn:org.jetbrains.kotlin:kotlin-reflect:jar|sources:1.0.4
 
 mvn:javax.servlet:javax.servlet-api:jar|sources:3.1.0
