@@ -58,7 +58,6 @@ class KaychTMLTest {
     @Test
     fun `copes with lists of stuff`() {
         val body = body("a list", ul(listOf(li("first"), li("second"))))
-        println("body = ${body}")
         assertThat(body.toHtml(),
                 equalTo("<body >\n" +
                         "  a list\n" +
