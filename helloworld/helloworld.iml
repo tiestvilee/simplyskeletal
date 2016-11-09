@@ -35,5 +35,6 @@
         <jarDirectory url="file://$MODULE_DIR$/../lib/runtime" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
+    <orderEntry type="module" module-name="kaychtml" />
   </component>
 </module>

@@ -6,6 +6,8 @@ fun attr(name: String, value: String) = KAttribute(name, value)
 fun id(id: String) = Id(id)
 fun cl(className: String) = Class(className)
 
+fun doctype(vararg params: Any): Doctype = Doctype(*params)
+
 fun a(vararg params: Any): A = A(*params)
 
 fun abbr(vararg params: Any): Abbr = Abbr(*params)

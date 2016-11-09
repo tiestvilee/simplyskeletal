@@ -1,5 +1,6 @@
 ktags_header = """package org.tiestvilee.kaychtml.impl
 
+class Doctype(vararg params: Any) : KTag("!DOCTYPE", *params)
 """
 
 class_definition = """class {}(vararg params: Any) : KTag("{}", *params)
@@ -13,6 +14,8 @@ import org.tiestvilee.kaychtml.impl.*
 fun attr(name: String, value: String) = KAttribute(name, value)
 fun id(id: String) = Id(id)
 fun cl(className: String) = Class(className)
+
+fun doctype(vararg params: Any): Doctype = Doctype(*params)
 
 """
 

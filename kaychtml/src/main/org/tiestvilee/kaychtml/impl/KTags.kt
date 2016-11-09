@@ -1,5 +1,6 @@
 package org.tiestvilee.kaychtml.impl
 
+class Doctype(vararg params: Any) : KTag("!DOCTYPE", *params)
 class A(vararg params: Any) : KTag("a", *params)
 
 class Abbr(vararg params: Any) : KTag("abbr", *params)
