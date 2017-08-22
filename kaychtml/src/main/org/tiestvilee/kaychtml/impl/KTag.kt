@@ -1,6 +1,6 @@
 package org.tiestvilee.kaychtml.impl
 
-open class KTag(val tagName: String, vararg params: Any) {
+open class KTag(val tagName: String, val declaration: Boolean, val empty: Boolean, vararg params: Any) {
     private val flattenedParams = params.fold(listOf<Any>(), { acc, item ->
         when (item) {
             is Collection<*> ->
@@ -30,11 +30,12 @@ open class KTag(val tagName: String, vararg params: Any) {
     val content = flattenedParams
             .filter { it !is KAttribute }
             .map {
+                if (empty) throw IllegalArgumentException("Tag '$tagName' must be empty")
                 when (it) {
                     is String -> it
                     is KTag -> it
                     else -> throw IllegalArgumentException(
-                            "Don't understand argument: ${it.javaClass.simpleName}, expecting one of String, KTag")
+                        "Don't understand argument: ${it.javaClass.simpleName}, expecting one of String, KTag")
                 }
             }
 

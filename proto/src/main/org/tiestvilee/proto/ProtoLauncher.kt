@@ -20,7 +20,7 @@ object ProtoLauncher {
         application(app).start(
             defaultConfiguration()
                 .serverClass(RestServer::class.java)
-                .port(1337)
-        );
+                .port(1338)
+        )
     }
 }

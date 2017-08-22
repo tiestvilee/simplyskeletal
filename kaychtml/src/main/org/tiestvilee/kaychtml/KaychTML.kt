@@ -2,225 +2,245 @@ package org.tiestvilee.kaychtml
 
 import org.tiestvilee.kaychtml.impl.*
 
-fun attr(name: String, value: String) = KAttribute(name, value)
+fun attr(name: String) = KAttribute(name, "")
+infix fun String.attr(value: String) = KAttribute(this, value)
+
 fun id(id: String) = Id(id)
 fun cl(className: String) = Class(className)
 
 fun doctype(vararg params: Any): Doctype = Doctype(*params)
 
-fun a(vararg params: Any): A = A(*params)
+fun `a`(vararg params: Any): A = A(*params)
 
-fun abbr(vararg params: Any): Abbr = Abbr(*params)
+fun `abbr`(vararg params: Any): Abbr = Abbr(*params)
 
-fun address(vararg params: Any): Address = Address(*params)
+fun `address`(vararg params: Any): Address = Address(*params)
 
-fun area(vararg params: Any): Area = Area(*params)
+fun `area`(vararg params: Any): Area = Area(*params)
 
-fun article(vararg params: Any): Article = Article(*params)
+fun `article`(vararg params: Any): Article = Article(*params)
 
-fun aside(vararg params: Any): Aside = Aside(*params)
+fun `aside`(vararg params: Any): Aside = Aside(*params)
 
-fun audio(vararg params: Any): Audio = Audio(*params)
+fun `audio`(vararg params: Any): Audio = Audio(*params)
 
-fun b(vararg params: Any): B = B(*params)
+fun `b`(vararg params: Any): B = B(*params)
 
-fun base(vararg params: Any): Base = Base(*params)
+fun `base`(vararg params: Any): Base = Base(*params)
 
-fun bdi(vararg params: Any): Bdi = Bdi(*params)
+fun `bdi`(vararg params: Any): Bdi = Bdi(*params)
 
-fun bdo(vararg params: Any): Bdo = Bdo(*params)
+fun `bdo`(vararg params: Any): Bdo = Bdo(*params)
 
-fun blockquote(vararg params: Any): Blockquote = Blockquote(*params)
+fun `bgsound`(vararg params: Any): Bgsound = Bgsound(*params)
 
-fun body(vararg params: Any): Body = Body(*params)
+fun `blockquote`(vararg params: Any): Blockquote = Blockquote(*params)
 
-fun br(vararg params: Any): Br = Br(*params)
+fun `body`(vararg params: Any): Body = Body(*params)
 
-fun button(vararg params: Any): Button = Button(*params)
+fun `br`(vararg params: Any): Br = Br(*params)
 
-fun canvas(vararg params: Any): Canvas = Canvas(*params)
+fun `button`(vararg params: Any): Button = Button(*params)
 
-fun caption(vararg params: Any): Caption = Caption(*params)
+fun `canvas`(vararg params: Any): Canvas = Canvas(*params)
 
-fun cite(vararg params: Any): Cite = Cite(*params)
+fun `caption`(vararg params: Any): Caption = Caption(*params)
 
-fun code(vararg params: Any): Code = Code(*params)
+fun `cite`(vararg params: Any): Cite = Cite(*params)
 
-fun col(vararg params: Any): Col = Col(*params)
+fun `code`(vararg params: Any): Code = Code(*params)
 
-fun colgroup(vararg params: Any): Colgroup = Colgroup(*params)
+fun `col`(vararg params: Any): Col = Col(*params)
 
-fun command(vararg params: Any): Command = Command(*params)
+fun `colgroup`(vararg params: Any): Colgroup = Colgroup(*params)
 
-fun datalist(vararg params: Any): Datalist = Datalist(*params)
+fun `data`(vararg params: Any): Data = Data(*params)
 
-fun dd(vararg params: Any): Dd = Dd(*params)
+fun `datalist`(vararg params: Any): Datalist = Datalist(*params)
 
-fun del(vararg params: Any): Del = Del(*params)
+fun `dd`(vararg params: Any): Dd = Dd(*params)
 
-fun details(vararg params: Any): Details = Details(*params)
+fun `del`(vararg params: Any): Del = Del(*params)
 
-fun dfn(vararg params: Any): Dfn = Dfn(*params)
+fun `details`(vararg params: Any): Details = Details(*params)
 
-fun div(vararg params: Any): Div = Div(*params)
+fun `dfn`(vararg params: Any): Dfn = Dfn(*params)
 
-fun dl(vararg params: Any): Dl = Dl(*params)
+fun `dialog`(vararg params: Any): Dialog = Dialog(*params)
 
-fun dt(vararg params: Any): Dt = Dt(*params)
+fun `div`(vararg params: Any): Div = Div(*params)
 
-fun em(vararg params: Any): Em = Em(*params)
+fun `dl`(vararg params: Any): Dl = Dl(*params)
 
-fun embed(vararg params: Any): Embed = Embed(*params)
+fun `dt`(vararg params: Any): Dt = Dt(*params)
 
-fun fieldset(vararg params: Any): Fieldset = Fieldset(*params)
+fun `em`(vararg params: Any): Em = Em(*params)
 
-fun figcaption(vararg params: Any): Figcaption = Figcaption(*params)
+fun `embed`(vararg params: Any): Embed = Embed(*params)
 
-fun figure(vararg params: Any): Figure = Figure(*params)
+fun `fieldset`(vararg params: Any): Fieldset = Fieldset(*params)
 
-fun footer(vararg params: Any): Footer = Footer(*params)
+fun `figcaption`(vararg params: Any): Figcaption = Figcaption(*params)
 
-fun form(vararg params: Any): Form = Form(*params)
+fun `figure`(vararg params: Any): Figure = Figure(*params)
 
-fun h1(vararg params: Any): H1 = H1(*params)
+fun `footer`(vararg params: Any): Footer = Footer(*params)
 
-fun h2(vararg params: Any): H2 = H2(*params)
+fun `form`(vararg params: Any): Form = Form(*params)
 
-fun h3(vararg params: Any): H3 = H3(*params)
+fun `h1`(vararg params: Any): H1 = H1(*params)
 
-fun h4(vararg params: Any): H4 = H4(*params)
+fun `h2`(vararg params: Any): H2 = H2(*params)
 
-fun h5(vararg params: Any): H5 = H5(*params)
+fun `h3`(vararg params: Any): H3 = H3(*params)
 
-fun h6(vararg params: Any): H6 = H6(*params)
+fun `h4`(vararg params: Any): H4 = H4(*params)
 
-fun head(vararg params: Any): Head = Head(*params)
+fun `h5`(vararg params: Any): H5 = H5(*params)
 
-fun header(vararg params: Any): Header = Header(*params)
+fun `h6`(vararg params: Any): H6 = H6(*params)
 
-fun hgroup(vararg params: Any): Hgroup = Hgroup(*params)
+fun `head`(vararg params: Any): Head = Head(*params)
 
-fun hr(vararg params: Any): Hr = Hr(*params)
+fun `header`(vararg params: Any): Header = Header(*params)
 
-fun html(vararg params: Any): Html = Html(*params)
+fun `hgroup`(vararg params: Any): Hgroup = Hgroup(*params)
 
-fun i(vararg params: Any): I = I(*params)
+fun `hr`(vararg params: Any): Hr = Hr(*params)
 
-fun iframe(vararg params: Any): Iframe = Iframe(*params)
+fun `html`(vararg params: Any): Html = Html(*params)
 
-fun img(vararg params: Any): Img = Img(*params)
+fun `i`(vararg params: Any): I = I(*params)
 
-fun input(vararg params: Any): Input = Input(*params)
+fun `iframe`(vararg params: Any): Iframe = Iframe(*params)
 
-fun ins(vararg params: Any): Ins = Ins(*params)
+fun `img`(vararg params: Any): Img = Img(*params)
 
-fun kbd(vararg params: Any): Kbd = Kbd(*params)
+fun `input`(vararg params: Any): Input = Input(*params)
 
-fun keygen(vararg params: Any): Keygen = Keygen(*params)
+fun `ins`(vararg params: Any): Ins = Ins(*params)
 
-fun label(vararg params: Any): Label = Label(*params)
+fun `kbd`(vararg params: Any): Kbd = Kbd(*params)
 
-fun legend(vararg params: Any): Legend = Legend(*params)
+fun `label`(vararg params: Any): Label = Label(*params)
 
-fun li(vararg params: Any): Li = Li(*params)
+fun `legend`(vararg params: Any): Legend = Legend(*params)
 
-fun link(vararg params: Any): Link = Link(*params)
+fun `li`(vararg params: Any): Li = Li(*params)
 
-fun map(vararg params: Any): HtmlMap = HtmlMap(*params)
+fun `link`(vararg params: Any): Link = Link(*params)
 
-fun mark(vararg params: Any): Mark = Mark(*params)
+fun `main`(vararg params: Any): Main = Main(*params)
 
-fun menu(vararg params: Any): Menu = Menu(*params)
+fun `map_`(vararg params: Any): Map_ = Map_(*params)
 
-fun meta(vararg params: Any): Meta = Meta(*params)
+fun `mark`(vararg params: Any): Mark = Mark(*params)
 
-fun meter(vararg params: Any): Meter = Meter(*params)
+fun `menu`(vararg params: Any): Menu = Menu(*params)
 
-fun nav(vararg params: Any): Nav = Nav(*params)
+fun `menuitem`(vararg params: Any): Menuitem = Menuitem(*params)
 
-fun noscript(vararg params: Any): Noscript = Noscript(*params)
+fun `meta`(vararg params: Any): Meta = Meta(*params)
 
-fun htmlObject(vararg params: Any): HtmlObject = HtmlObject(*params)
+fun `meter`(vararg params: Any): Meter = Meter(*params)
 
-fun ol(vararg params: Any): Ol = Ol(*params)
+fun `nav`(vararg params: Any): Nav = Nav(*params)
 
-fun optgroup(vararg params: Any): Optgroup = Optgroup(*params)
+fun `nobr`(vararg params: Any): Nobr = Nobr(*params)
 
-fun option(vararg params: Any): Option = Option(*params)
+fun `noframes`(vararg params: Any): Noframes = Noframes(*params)
 
-fun output(vararg params: Any): Output = Output(*params)
+fun `noscript`(vararg params: Any): Noscript = Noscript(*params)
 
-fun p(vararg params: Any): P = P(*params)
+fun `object`(vararg params: Any): Object = Object(*params)
 
-fun param(vararg params: Any): Param = Param(*params)
+fun `ol`(vararg params: Any): Ol = Ol(*params)
 
-fun pre(vararg params: Any): Pre = Pre(*params)
+fun `optgroup`(vararg params: Any): Optgroup = Optgroup(*params)
 
-fun progress(vararg params: Any): Progress = Progress(*params)
+fun `option`(vararg params: Any): Option = Option(*params)
 
-fun q(vararg params: Any): Q = Q(*params)
+fun `output`(vararg params: Any): Output = Output(*params)
 
-fun rp(vararg params: Any): Rp = Rp(*params)
+fun `p`(vararg params: Any): P = P(*params)
 
-fun rt(vararg params: Any): Rt = Rt(*params)
+fun `param`(vararg params: Any): Param = Param(*params)
 
-fun ruby(vararg params: Any): Ruby = Ruby(*params)
+fun `picture`(vararg params: Any): Picture = Picture(*params)
 
-fun s(vararg params: Any): S = S(*params)
+fun `pre`(vararg params: Any): Pre = Pre(*params)
 
-fun samp(vararg params: Any): Samp = Samp(*params)
+fun `progress`(vararg params: Any): Progress = Progress(*params)
 
-fun script(vararg params: Any): Script = Script(*params)
+fun `q`(vararg params: Any): Q = Q(*params)
 
-fun section(vararg params: Any): Section = Section(*params)
+fun `rp`(vararg params: Any): Rp = Rp(*params)
 
-fun select(vararg params: Any): Select = Select(*params)
+fun `rt`(vararg params: Any): Rt = Rt(*params)
 
-fun small(vararg params: Any): Small = Small(*params)
+fun `rtc`(vararg params: Any): Rtc = Rtc(*params)
 
-fun source(vararg params: Any): Source = Source(*params)
+fun `ruby`(vararg params: Any): Ruby = Ruby(*params)
 
-fun span(vararg params: Any): Span = Span(*params)
+fun `s`(vararg params: Any): S = S(*params)
 
-fun strong(vararg params: Any): Strong = Strong(*params)
+fun `samp`(vararg params: Any): Samp = Samp(*params)
 
-fun style(vararg params: Any): Style = Style(*params)
+fun `script`(vararg params: Any): Script = Script(*params)
 
-fun sub(vararg params: Any): Sub = Sub(*params)
+fun `section`(vararg params: Any): Section = Section(*params)
 
-fun summary(vararg params: Any): Summary = Summary(*params)
+fun `select`(vararg params: Any): Select = Select(*params)
 
-fun sup(vararg params: Any): Sup = Sup(*params)
+fun `slot`(vararg params: Any): Slot = Slot(*params)
 
-fun table(vararg params: Any): Table = Table(*params)
+fun `small`(vararg params: Any): Small = Small(*params)
 
-fun tbody(vararg params: Any): Tbody = Tbody(*params)
+fun `source`(vararg params: Any): Source = Source(*params)
 
-fun td(vararg params: Any): Td = Td(*params)
+fun `span`(vararg params: Any): Span = Span(*params)
 
-fun textarea(vararg params: Any): Textarea = Textarea(*params)
+fun `strong`(vararg params: Any): Strong = Strong(*params)
 
-fun tfoot(vararg params: Any): Tfoot = Tfoot(*params)
+fun `style`(vararg params: Any): Style = Style(*params)
 
-fun th(vararg params: Any): Th = Th(*params)
+fun `sub`(vararg params: Any): Sub = Sub(*params)
 
-fun thead(vararg params: Any): Thead = Thead(*params)
+fun `summary`(vararg params: Any): Summary = Summary(*params)
 
-fun time(vararg params: Any): Time = Time(*params)
+fun `sup`(vararg params: Any): Sup = Sup(*params)
 
-fun title(vararg params: Any): Title = Title(*params)
+fun `table`(vararg params: Any): Table = Table(*params)
 
-fun tr(vararg params: Any): Tr = Tr(*params)
+fun `tbody`(vararg params: Any): Tbody = Tbody(*params)
 
-fun track(vararg params: Any): Track = Track(*params)
+fun `td`(vararg params: Any): Td = Td(*params)
 
-fun u(vararg params: Any): U = U(*params)
+fun `template`(vararg params: Any): Template = Template(*params)
 
-fun ul(vararg params: Any): Ul = Ul(*params)
+fun `textarea`(vararg params: Any): Textarea = Textarea(*params)
+
+fun `tfoot`(vararg params: Any): Tfoot = Tfoot(*params)
+
+fun `th`(vararg params: Any): Th = Th(*params)
+
+fun `thead`(vararg params: Any): Thead = Thead(*params)
+
+fun `time`(vararg params: Any): Time = Time(*params)
+
+fun `title`(vararg params: Any): Title = Title(*params)
+
+fun `tr`(vararg params: Any): Tr = Tr(*params)
+
+fun `track`(vararg params: Any): Track = Track(*params)
+
+fun `u`(vararg params: Any): U = U(*params)
+
+fun `ul`(vararg params: Any): Ul = Ul(*params)
 
 fun `var`(vararg params: Any): Var = Var(*params)
 
-fun video(vararg params: Any): Video = Video(*params)
+fun `video`(vararg params: Any): Video = Video(*params)
 
-fun wbr(vararg params: Any): Wbr = Wbr(*params)
+fun `wbr`(vararg params: Any): Wbr = Wbr(*params)
 
