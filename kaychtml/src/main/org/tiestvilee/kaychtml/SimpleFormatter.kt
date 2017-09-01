@@ -3,53 +3,123 @@ package org.tiestvilee.kaychtml
 import org.tiestvilee.kaychtml.impl.KTag
 
 object SimpleFormatter {
-    fun toHtml(tag: KTag): String = toHtml(tag, "")
-    fun toHtml(tag: KTag, indent: String): String {
-        return indent + when {
-            tag.declaration == true -> {
-                renderDeclaration(tag, innerText(tag, indent))
+    data class ChunkRenderResult(val indent: String, val text: String)
+
+    interface Chunk {
+        fun toString(indent: String, previous: Chunk): ChunkRenderResult
+        fun indentFrom(indent: String): String
+    }
+
+    data class Breakable(val contents: String) : Chunk {
+        override fun indentFrom(indent: String): String {
+            return "\n" + indent
+        }
+
+        override fun toString(indent: String, previous: Chunk): ChunkRenderResult {
+            return ChunkRenderResult(indent, previous.indentFrom(indent) + contents)
+        }
+    }
+
+    data class IndentBreakable(val contents: String) : Chunk {
+        override fun indentFrom(indent: String): String {
+            return "\n" + indent
+        }
+
+        override fun toString(indent: String, previous: Chunk): ChunkRenderResult {
+            return ChunkRenderResult(indent + "  ", previous.indentFrom(indent) + contents)
+        }
+    }
+
+    data class UnindentBreakable(val contents: String) : Chunk {
+        override fun indentFrom(indent: String): String {
+            return "\n" + indent
+        }
+
+        override fun toString(indent: String, previous: Chunk): ChunkRenderResult {
+            val newIndent = indent.substring(0, Math.max(0, indent.length - 2))
+            return ChunkRenderResult(newIndent, previous.indentFrom(newIndent) + contents)
+        }
+    }
+
+    data class Unbreakable(val contents: String) : Chunk {
+        override fun indentFrom(indent: String): String {
+            return ""
+        }
+
+        override fun toString(indent: String, previous: Chunk): ChunkRenderResult {
+            return ChunkRenderResult(indent, contents)
+        }
+    }
+
+    fun toHtml(tag: KTag): String {
+        val chunks = toChunks(tag)
+        var previous: Chunk = Unbreakable("")
+        var indent = ""
+        val result = StringBuilder()
+
+        for (current in chunks) {
+            val (newIndent, text) = current.toString(indent, previous)
+            indent = newIndent
+            previous = current
+            result.append(text)
+        }
+        return result.toString()
+    }
+
+    fun toChunks(tag: KTag): List<Chunk> {
+        return when {
+            tag.declaration -> {
+                renderDeclaration(tag, innerText(tag))
             }
-            tag.empty == true -> {
-                if (innerText(tag, indent).trim().isNotEmpty()) {
+            tag.empty -> {
+                if (innerText(tag).isNotEmpty()) {
                     throw IllegalArgumentException("Tag ${tag.tagName} must be empty")
                 }
                 renderEmptyTag(tag)
             }
             else -> {
-                val innerText = innerText(tag, indent + "  ")
-                val indentedInnerText = innerText + if (innerText.trim().isNotEmpty()) "\n" + indent else ""
-                renderTag(tag, indentedInnerText)
+                renderTag(tag, innerText(tag))
             }
         }
     }
 
 
-    private fun renderDeclaration(tag: KTag, innerText: String) =
-        "<${tag.tagName}${attributes(tag)}>$innerText"
+    private fun renderDeclaration(tag: KTag, chunks: List<Chunk>) =
+        listOf(Breakable("<${tag.tagName}${attributes(tag)}>")) + chunks
 
     private fun renderEmptyTag(tag: KTag) =
-        "<${tag.tagName}${attributes(tag)}>"
+        listOf(Breakable("<${tag.tagName}${attributes(tag)}>"))
 
-    private fun renderTag(tag: KTag, innerText: String) =
-        "<${tag.tagName}${attributes(tag)}>$innerText</${tag.tagName}>"
+    private fun renderTag(tag: KTag, chunks: List<Chunk>) =
+        listOf(IndentBreakable("<${tag.tagName}${attributes(tag)}>")) + chunks + UnindentBreakable("</${tag.tagName}>")
 
-    private fun innerText(tag: KTag, indent: String): String =
+    private fun innerText(tag: KTag): List<Chunk> =
         tag.content
-            .map {
-                "\n" + when (it) {
-                    is String -> if (it.trim().isNotEmpty()) indent + it else ""
-                    is KTag -> toHtml(it, indent)
+            .flatMap {
+                when (it) {
+                    is String -> listOf(Unbreakable(it))
+                    is KTag -> toChunks(it)
                     else -> throw IllegalArgumentException("Don't understand item: " + it.javaClass.simpleName)
                 }
             }
-            .joinToString("")
 
 }
 
 
 object CompactFormatter {
     fun toHtml(tag: KTag): String =
-        "<${tag.tagName}${attributes(tag)}>${innerText(tag)}</${tag.tagName}>"
+        when {
+            tag.declaration -> {
+                "<${tag.tagName}${attributes(tag)}>${innerText(tag)}"
+            }
+            tag.empty -> {
+                "<${tag.tagName}${attributes(tag)}>"
+            }
+            else -> {
+                "<${tag.tagName}${attributes(tag)}>${innerText(tag)}</${tag.tagName}>"
+            }
+        }
+
 
     private fun innerText(tag: KTag): String =
         tag.content
