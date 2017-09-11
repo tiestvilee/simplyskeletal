@@ -1,237 +1,237 @@
 package org.tiestvilee.kaychtml.impl
 
-class Doctype(vararg params: KElement) : KTag("!DOCTYPE", true, false, *params)
-class A(vararg params: KElement) : KTag("a", false, false, *params)
+class Doctype(children: List<KElement>) : KTag("!DOCTYPE", true, false, children)
+class A(children: List<KElement>) : KTag("a", false, false, children)
 
-class Abbr(vararg params: KElement) : KTag("abbr", false, false, *params)
+class Abbr(children: List<KElement>) : KTag("abbr", false, false, children)
 
-class Address(vararg params: KElement) : KTag("address", false, false, *params)
+class Address(children: List<KElement>) : KTag("address", false, false, children)
 
-class Area(vararg params: KElement) : KTag("area", false, true, *params)
+class Area(children: List<KElement>) : KTag("area", false, true, children)
 
-class Article(vararg params: KElement) : KTag("article", false, false, *params)
+class Article(children: List<KElement>) : KTag("article", false, false, children)
 
-class Aside(vararg params: KElement) : KTag("aside", false, false, *params)
+class Aside(children: List<KElement>) : KTag("aside", false, false, children)
 
-class Audio(vararg params: KElement) : KTag("audio", false, false, *params)
+class Audio(children: List<KElement>) : KTag("audio", false, false, children)
 
-class B(vararg params: KElement) : KTag("b", false, false, *params)
+class B(children: List<KElement>) : KTag("b", false, false, children)
 
-class Base(vararg params: KElement) : KTag("base", false, true, *params)
+class Base(children: List<KElement>) : KTag("base", false, true, children)
 
-class Bdi(vararg params: KElement) : KTag("bdi", false, false, *params)
+class Bdi(children: List<KElement>) : KTag("bdi", false, false, children)
 
-class Bdo(vararg params: KElement) : KTag("bdo", false, false, *params)
+class Bdo(children: List<KElement>) : KTag("bdo", false, false, children)
 
-class Bgsound(vararg params: KElement) : KTag("bgsound", false, false, *params)
+class Bgsound(children: List<KElement>) : KTag("bgsound", false, false, children)
 
-class Blockquote(vararg params: KElement) : KTag("blockquote", false, false, *params)
+class Blockquote(children: List<KElement>) : KTag("blockquote", false, false, children)
 
-class Body(vararg params: KElement) : KTag("body", false, false, *params)
+class Body(children: List<KElement>) : KTag("body", false, false, children)
 
-class Br(vararg params: KElement) : KTag("br", false, true, *params)
+class Br(children: List<KElement>) : KTag("br", false, true, children)
 
-class Button(vararg params: KElement) : KTag("button", false, false, *params)
+class Button(children: List<KElement>) : KTag("button", false, false, children)
 
-class Canvas(vararg params: KElement) : KTag("canvas", false, false, *params)
+class Canvas(children: List<KElement>) : KTag("canvas", false, false, children)
 
-class Caption(vararg params: KElement) : KTag("caption", false, false, *params)
+class Caption(children: List<KElement>) : KTag("caption", false, false, children)
 
-class Cite(vararg params: KElement) : KTag("cite", false, false, *params)
+class Cite(children: List<KElement>) : KTag("cite", false, false, children)
 
-class Code(vararg params: KElement) : KTag("code", false, false, *params)
+class Code(children: List<KElement>) : KTag("code", false, false, children)
 
-class Col(vararg params: KElement) : KTag("col", false, true, *params)
+class Col(children: List<KElement>) : KTag("col", false, true, children)
 
-class Colgroup(vararg params: KElement) : KTag("colgroup", false, false, *params)
+class Colgroup(children: List<KElement>) : KTag("colgroup", false, false, children)
 
-class Data(vararg params: KElement) : KTag("data", false, false, *params)
+class Data(children: List<KElement>) : KTag("data", false, false, children)
 
-class Datalist(vararg params: KElement) : KTag("datalist", false, false, *params)
+class Datalist(children: List<KElement>) : KTag("datalist", false, false, children)
 
-class Dd(vararg params: KElement) : KTag("dd", false, false, *params)
+class Dd(children: List<KElement>) : KTag("dd", false, false, children)
 
-class Del(vararg params: KElement) : KTag("del", false, false, *params)
+class Del(children: List<KElement>) : KTag("del", false, false, children)
 
-class Details(vararg params: KElement) : KTag("details", false, false, *params)
+class Details(children: List<KElement>) : KTag("details", false, false, children)
 
-class Dfn(vararg params: KElement) : KTag("dfn", false, false, *params)
+class Dfn(children: List<KElement>) : KTag("dfn", false, false, children)
 
-class Dialog(vararg params: KElement) : KTag("dialog", false, false, *params)
+class Dialog(children: List<KElement>) : KTag("dialog", false, false, children)
 
-class Div(vararg params: KElement) : KTag("div", false, false, *params)
+class Div(children: List<KElement>) : KTag("div", false, false, children)
 
-class Dl(vararg params: KElement) : KTag("dl", false, false, *params)
+class Dl(children: List<KElement>) : KTag("dl", false, false, children)
 
-class Dt(vararg params: KElement) : KTag("dt", false, false, *params)
+class Dt(children: List<KElement>) : KTag("dt", false, false, children)
 
-class Em(vararg params: KElement) : KTag("em", false, false, *params)
+class Em(children: List<KElement>) : KTag("em", false, false, children)
 
-class Embed(vararg params: KElement) : KTag("embed", false, true, *params)
+class Embed(children: List<KElement>) : KTag("embed", false, true, children)
 
-class Fieldset(vararg params: KElement) : KTag("fieldset", false, false, *params)
+class Fieldset(children: List<KElement>) : KTag("fieldset", false, false, children)
 
-class Figcaption(vararg params: KElement) : KTag("figcaption", false, false, *params)
+class Figcaption(children: List<KElement>) : KTag("figcaption", false, false, children)
 
-class Figure(vararg params: KElement) : KTag("figure", false, false, *params)
+class Figure(children: List<KElement>) : KTag("figure", false, false, children)
 
-class Footer(vararg params: KElement) : KTag("footer", false, false, *params)
+class Footer(children: List<KElement>) : KTag("footer", false, false, children)
 
-class Form(vararg params: KElement) : KTag("form", false, false, *params)
+class Form(children: List<KElement>) : KTag("form", false, false, children)
 
-class H1(vararg params: KElement) : KTag("h1", false, false, *params)
+class H1(children: List<KElement>) : KTag("h1", false, false, children)
 
-class H2(vararg params: KElement) : KTag("h2", false, false, *params)
+class H2(children: List<KElement>) : KTag("h2", false, false, children)
 
-class H3(vararg params: KElement) : KTag("h3", false, false, *params)
+class H3(children: List<KElement>) : KTag("h3", false, false, children)
 
-class H4(vararg params: KElement) : KTag("h4", false, false, *params)
+class H4(children: List<KElement>) : KTag("h4", false, false, children)
 
-class H5(vararg params: KElement) : KTag("h5", false, false, *params)
+class H5(children: List<KElement>) : KTag("h5", false, false, children)
 
-class H6(vararg params: KElement) : KTag("h6", false, false, *params)
+class H6(children: List<KElement>) : KTag("h6", false, false, children)
 
-class Head(vararg params: KElement) : KTag("head", false, false, *params)
+class Head(children: List<KElement>) : KTag("head", false, false, children)
 
-class Header(vararg params: KElement) : KTag("header", false, false, *params)
+class Header(children: List<KElement>) : KTag("header", false, false, children)
 
-class Hgroup(vararg params: KElement) : KTag("hgroup", false, false, *params)
+class Hgroup(children: List<KElement>) : KTag("hgroup", false, false, children)
 
-class Hr(vararg params: KElement) : KTag("hr", false, true, *params)
+class Hr(children: List<KElement>) : KTag("hr", false, true, children)
 
-class Html(vararg params: KElement) : KTag("html", false, false, *params)
+class Html(children: List<KElement>) : KTag("html", false, false, children)
 
-class I(vararg params: KElement) : KTag("i", false, false, *params)
+class I(children: List<KElement>) : KTag("i", false, false, children)
 
-class Iframe(vararg params: KElement) : KTag("iframe", false, false, *params)
+class Iframe(children: List<KElement>) : KTag("iframe", false, false, children)
 
-class Img(vararg params: KElement) : KTag("img", false, true, *params)
+class Img(children: List<KElement>) : KTag("img", false, true, children)
 
-class Input(vararg params: KElement) : KTag("input", false, true, *params)
+class Input(children: List<KElement>) : KTag("input", false, true, children)
 
-class Ins(vararg params: KElement) : KTag("ins", false, false, *params)
+class Ins(children: List<KElement>) : KTag("ins", false, false, children)
 
-class Kbd(vararg params: KElement) : KTag("kbd", false, false, *params)
+class Kbd(children: List<KElement>) : KTag("kbd", false, false, children)
 
-class Label(vararg params: KElement) : KTag("label", false, false, *params)
+class Label(children: List<KElement>) : KTag("label", false, false, children)
 
-class Legend(vararg params: KElement) : KTag("legend", false, false, *params)
+class Legend(children: List<KElement>) : KTag("legend", false, false, children)
 
-class Li(vararg params: KElement) : KTag("li", false, false, *params)
+class Li(children: List<KElement>) : KTag("li", false, false, children)
 
-class Link(vararg params: KElement) : KTag("link", false, true, *params)
+class Link(children: List<KElement>) : KTag("link", false, true, children)
 
-class Main(vararg params: KElement) : KTag("main", false, false, *params)
+class Main(children: List<KElement>) : KTag("main", false, false, children)
 
-class Map_(vararg params: KElement) : KTag("map_", false, false, *params)
+class Map_(children: List<KElement>) : KTag("map_", false, false, children)
 
-class Mark(vararg params: KElement) : KTag("mark", false, false, *params)
+class Mark(children: List<KElement>) : KTag("mark", false, false, children)
 
-class Menu(vararg params: KElement) : KTag("menu", false, false, *params)
+class Menu(children: List<KElement>) : KTag("menu", false, false, children)
 
-class Menuitem(vararg params: KElement) : KTag("menuitem", false, false, *params)
+class Menuitem(children: List<KElement>) : KTag("menuitem", false, false, children)
 
-class Meta(vararg params: KElement) : KTag("meta", false, true, *params)
+class Meta(children: List<KElement>) : KTag("meta", false, true, children)
 
-class Meter(vararg params: KElement) : KTag("meter", false, false, *params)
+class Meter(children: List<KElement>) : KTag("meter", false, false, children)
 
-class Nav(vararg params: KElement) : KTag("nav", false, false, *params)
+class Nav(children: List<KElement>) : KTag("nav", false, false, children)
 
-class Nobr(vararg params: KElement) : KTag("nobr", false, false, *params)
+class Nobr(children: List<KElement>) : KTag("nobr", false, false, children)
 
-class Noframes(vararg params: KElement) : KTag("noframes", false, false, *params)
+class Noframes(children: List<KElement>) : KTag("noframes", false, false, children)
 
-class Noscript(vararg params: KElement) : KTag("noscript", false, false, *params)
+class Noscript(children: List<KElement>) : KTag("noscript", false, false, children)
 
-class Object(vararg params: KElement) : KTag("object", false, false, *params)
+class Object(children: List<KElement>) : KTag("object", false, false, children)
 
-class Ol(vararg params: KElement) : KTag("ol", false, false, *params)
+class Ol(children: List<KElement>) : KTag("ol", false, false, children)
 
-class Optgroup(vararg params: KElement) : KTag("optgroup", false, false, *params)
+class Optgroup(children: List<KElement>) : KTag("optgroup", false, false, children)
 
-class Option(vararg params: KElement) : KTag("option", false, false, *params)
+class Option(children: List<KElement>) : KTag("option", false, false, children)
 
-class Output(vararg params: KElement) : KTag("output", false, false, *params)
+class Output(children: List<KElement>) : KTag("output", false, false, children)
 
-class P(vararg params: KElement) : KTag("p", false, false, *params)
+class P(children: List<KElement>) : KTag("p", false, false, children)
 
-class Param(vararg params: KElement) : KTag("param", false, true, *params)
+class Param(children: List<KElement>) : KTag("param", false, true, children)
 
-class Picture(vararg params: KElement) : KTag("picture", false, false, *params)
+class Picture(children: List<KElement>) : KTag("picture", false, false, children)
 
-class Pre(vararg params: KElement) : KTag("pre", false, false, *params)
+class Pre(children: List<KElement>) : KTag("pre", false, false, children)
 
-class Progress(vararg params: KElement) : KTag("progress", false, false, *params)
+class Progress(children: List<KElement>) : KTag("progress", false, false, children)
 
-class Q(vararg params: KElement) : KTag("q", false, false, *params)
+class Q(children: List<KElement>) : KTag("q", false, false, children)
 
-class Rp(vararg params: KElement) : KTag("rp", false, false, *params)
+class Rp(children: List<KElement>) : KTag("rp", false, false, children)
 
-class Rt(vararg params: KElement) : KTag("rt", false, false, *params)
+class Rt(children: List<KElement>) : KTag("rt", false, false, children)
 
-class Rtc(vararg params: KElement) : KTag("rtc", false, false, *params)
+class Rtc(children: List<KElement>) : KTag("rtc", false, false, children)
 
-class Ruby(vararg params: KElement) : KTag("ruby", false, false, *params)
+class Ruby(children: List<KElement>) : KTag("ruby", false, false, children)
 
-class S(vararg params: KElement) : KTag("s", false, false, *params)
+class S(children: List<KElement>) : KTag("s", false, false, children)
 
-class Samp(vararg params: KElement) : KTag("samp", false, false, *params)
+class Samp(children: List<KElement>) : KTag("samp", false, false, children)
 
-class Script(vararg params: KElement) : KTag("script", false, false, *params)
+class Script(children: List<KElement>) : KTag("script", false, false, children)
 
-class Section(vararg params: KElement) : KTag("section", false, false, *params)
+class Section(children: List<KElement>) : KTag("section", false, false, children)
 
-class Select(vararg params: KElement) : KTag("select", false, false, *params)
+class Select(children: List<KElement>) : KTag("select", false, false, children)
 
-class Slot(vararg params: KElement) : KTag("slot", false, false, *params)
+class Slot(children: List<KElement>) : KTag("slot", false, false, children)
 
-class Small(vararg params: KElement) : KTag("small", false, false, *params)
+class Small(children: List<KElement>) : KTag("small", false, false, children)
 
-class Source(vararg params: KElement) : KTag("source", false, true, *params)
+class Source(children: List<KElement>) : KTag("source", false, true, children)
 
-class Span(vararg params: KElement) : KTag("span", false, false, *params)
+class Span(children: List<KElement>) : KTag("span", false, false, children)
 
-class Strong(vararg params: KElement) : KTag("strong", false, false, *params)
+class Strong(children: List<KElement>) : KTag("strong", false, false, children)
 
-class Style(vararg params: KElement) : KTag("style", false, false, *params)
+class Style(children: List<KElement>) : KTag("style", false, false, children)
 
-class Sub(vararg params: KElement) : KTag("sub", false, false, *params)
+class Sub(children: List<KElement>) : KTag("sub", false, false, children)
 
-class Summary(vararg params: KElement) : KTag("summary", false, false, *params)
+class Summary(children: List<KElement>) : KTag("summary", false, false, children)
 
-class Sup(vararg params: KElement) : KTag("sup", false, false, *params)
+class Sup(children: List<KElement>) : KTag("sup", false, false, children)
 
-class Table(vararg params: KElement) : KTag("table", false, false, *params)
+class Table(children: List<KElement>) : KTag("table", false, false, children)
 
-class Tbody(vararg params: KElement) : KTag("tbody", false, false, *params)
+class Tbody(children: List<KElement>) : KTag("tbody", false, false, children)
 
-class Td(vararg params: KElement) : KTag("td", false, false, *params)
+class Td(children: List<KElement>) : KTag("td", false, false, children)
 
-class Template(vararg params: KElement) : KTag("template", false, false, *params)
+class Template(children: List<KElement>) : KTag("template", false, false, children)
 
-class Textarea(vararg params: KElement) : KTag("textarea", false, false, *params)
+class Textarea(children: List<KElement>) : KTag("textarea", false, false, children)
 
-class Tfoot(vararg params: KElement) : KTag("tfoot", false, false, *params)
+class Tfoot(children: List<KElement>) : KTag("tfoot", false, false, children)
 
-class Th(vararg params: KElement) : KTag("th", false, false, *params)
+class Th(children: List<KElement>) : KTag("th", false, false, children)
 
-class Thead(vararg params: KElement) : KTag("thead", false, false, *params)
+class Thead(children: List<KElement>) : KTag("thead", false, false, children)
 
-class Time(vararg params: KElement) : KTag("time", false, false, *params)
+class Time(children: List<KElement>) : KTag("time", false, false, children)
 
-class Title(vararg params: KElement) : KTag("title", false, false, *params)
+class Title(children: List<KElement>) : KTag("title", false, false, children)
 
-class Tr(vararg params: KElement) : KTag("tr", false, false, *params)
+class Tr(children: List<KElement>) : KTag("tr", false, false, children)
 
-class Track(vararg params: KElement) : KTag("track", false, true, *params)
+class Track(children: List<KElement>) : KTag("track", false, true, children)
 
-class U(vararg params: KElement) : KTag("u", false, false, *params)
+class U(children: List<KElement>) : KTag("u", false, false, children)
 
-class Ul(vararg params: KElement) : KTag("ul", false, false, *params)
+class Ul(children: List<KElement>) : KTag("ul", false, false, children)
 
-class Var(vararg params: KElement) : KTag("var", false, false, *params)
+class Var(children: List<KElement>) : KTag("var", false, false, children)
 
-class Video(vararg params: KElement) : KTag("video", false, false, *params)
+class Video(children: List<KElement>) : KTag("video", false, false, children)
 
-class Wbr(vararg params: KElement) : KTag("wbr", false, true, *params)
+class Wbr(children: List<KElement>) : KTag("wbr", false, true, children)
 

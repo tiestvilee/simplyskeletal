@@ -7,13 +7,12 @@ val String.s: KElement
 
 class KString(val contents: String) : KElement
 
-fun elements(vararg elements: KElement) =
-    KElementList(elements.toList())
+fun elements(vararg elements: KElement) = KElementList(elements.toList())
 
-fun List<KElement>.elements(): KElement {
-    return KElementList(this)
-}
+fun List<KElement>.elements() = KElementList(this)
 
 class KElementList(val elements: List<KElement>) : KElement
 
-class KNoop() : KElement
+fun noop() = KNoop()
+
+class KNoop : KElement

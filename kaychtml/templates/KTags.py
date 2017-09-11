@@ -2,10 +2,10 @@ import csv
 
 ktags_header = """package org.tiestvilee.kaychtml.impl
 
-class Doctype(vararg params: KElement) : KTag("!DOCTYPE", true, false, *params)
+class Doctype(children: List<KElement>) : KTag("!DOCTYPE", true, false, children)
 """
 
-class_definition = """class {}(vararg params: KElement) : KTag("{}", false, {}, *params)
+class_definition = """class {}(children: List<KElement>) : KTag("{}", false, {}, children)
 
 """
 
@@ -13,17 +13,11 @@ kaychtml_header = """package org.tiestvilee.kaychtml
 
 import org.tiestvilee.kaychtml.impl.*
 
-fun attr(name: String) = KAttribute(name, "")
-infix fun String.attr(value: String) = KAttribute(this, value)
-
-fun id(id: String) = Id(id)
-fun cl(className: String) = Class(className)
-
-fun doctype(vararg params: KElement): Doctype = Doctype(*params)
+fun doctype(vararg params: KElement): Doctype = Doctype(params.toList())
 
 """
 
-fun_definition = """fun `{}`(vararg params: KElement): {} = {}(*params)
+fun_definition = """fun `{}`(vararg params: KElement): {} = {}(params.toList())
 
 """
 

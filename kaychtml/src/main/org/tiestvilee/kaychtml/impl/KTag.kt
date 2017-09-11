@@ -1,6 +1,6 @@
 package org.tiestvilee.kaychtml.impl
 
-open class KTag(val tagName: String, val declaration: Boolean, val empty: Boolean, vararg params: KElement) : KElement {
+open class KTag(val tagName: String, val declaration: Boolean, val empty: Boolean, params: List<KElement>) : KElement {
     private val flattenedParams = params.fold(listOf<KElement>(), { acc: List<KElement>, item: KElement ->
         when (item) {
             is KElementList ->

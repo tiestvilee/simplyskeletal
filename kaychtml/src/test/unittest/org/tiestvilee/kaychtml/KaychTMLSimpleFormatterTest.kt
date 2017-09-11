@@ -4,10 +4,7 @@ import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
 import org.junit.Test
 import org.tiestvilee.kaychtml.*
-import org.tiestvilee.kaychtml.impl.Doctype
-import org.tiestvilee.kaychtml.impl.KNoop
-import org.tiestvilee.kaychtml.impl.elements
-import org.tiestvilee.kaychtml.impl.s
+import org.tiestvilee.kaychtml.impl.*
 import kotlin.test.fail
 
 class KaychTMLSimpleFormatterTest {

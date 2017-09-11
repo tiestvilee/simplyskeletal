@@ -2,245 +2,239 @@ package org.tiestvilee.kaychtml
 
 import org.tiestvilee.kaychtml.impl.*
 
-fun attr(name: String) = KAttribute(name, "")
-infix fun String.attr(value: String) = KAttribute(this, value)
+fun doctype(vararg params: KElement): Doctype = Doctype(params.toList())
 
-fun id(id: String) = Id(id)
-fun cl(className: String) = Class(className)
+fun `a`(vararg params: KElement): A = A(params.toList())
 
-fun doctype(vararg params: KElement): Doctype = Doctype(*params)
+fun `abbr`(vararg params: KElement): Abbr = Abbr(params.toList())
 
-fun `a`(vararg params: KElement): A = A(*params)
+fun `address`(vararg params: KElement): Address = Address(params.toList())
 
-fun `abbr`(vararg params: KElement): Abbr = Abbr(*params)
+fun `area`(vararg params: KElement): Area = Area(params.toList())
 
-fun `address`(vararg params: KElement): Address = Address(*params)
+fun `article`(vararg params: KElement): Article = Article(params.toList())
 
-fun `area`(vararg params: KElement): Area = Area(*params)
+fun `aside`(vararg params: KElement): Aside = Aside(params.toList())
 
-fun `article`(vararg params: KElement): Article = Article(*params)
+fun `audio`(vararg params: KElement): Audio = Audio(params.toList())
 
-fun `aside`(vararg params: KElement): Aside = Aside(*params)
+fun `b`(vararg params: KElement): B = B(params.toList())
 
-fun `audio`(vararg params: KElement): Audio = Audio(*params)
+fun `base`(vararg params: KElement): Base = Base(params.toList())
 
-fun `b`(vararg params: KElement): B = B(*params)
+fun `bdi`(vararg params: KElement): Bdi = Bdi(params.toList())
 
-fun `base`(vararg params: KElement): Base = Base(*params)
+fun `bdo`(vararg params: KElement): Bdo = Bdo(params.toList())
 
-fun `bdi`(vararg params: KElement): Bdi = Bdi(*params)
+fun `bgsound`(vararg params: KElement): Bgsound = Bgsound(params.toList())
 
-fun `bdo`(vararg params: KElement): Bdo = Bdo(*params)
+fun `blockquote`(vararg params: KElement): Blockquote = Blockquote(params.toList())
 
-fun `bgsound`(vararg params: KElement): Bgsound = Bgsound(*params)
+fun `body`(vararg params: KElement): Body = Body(params.toList())
 
-fun `blockquote`(vararg params: KElement): Blockquote = Blockquote(*params)
+fun `br`(vararg params: KElement): Br = Br(params.toList())
 
-fun `body`(vararg params: KElement): Body = Body(*params)
+fun `button`(vararg params: KElement): Button = Button(params.toList())
 
-fun `br`(vararg params: KElement): Br = Br(*params)
+fun `canvas`(vararg params: KElement): Canvas = Canvas(params.toList())
 
-fun `button`(vararg params: KElement): Button = Button(*params)
+fun `caption`(vararg params: KElement): Caption = Caption(params.toList())
 
-fun `canvas`(vararg params: KElement): Canvas = Canvas(*params)
+fun `cite`(vararg params: KElement): Cite = Cite(params.toList())
 
-fun `caption`(vararg params: KElement): Caption = Caption(*params)
+fun `code`(vararg params: KElement): Code = Code(params.toList())
 
-fun `cite`(vararg params: KElement): Cite = Cite(*params)
+fun `col`(vararg params: KElement): Col = Col(params.toList())
 
-fun `code`(vararg params: KElement): Code = Code(*params)
+fun `colgroup`(vararg params: KElement): Colgroup = Colgroup(params.toList())
 
-fun `col`(vararg params: KElement): Col = Col(*params)
+fun `data`(vararg params: KElement): Data = Data(params.toList())
 
-fun `colgroup`(vararg params: KElement): Colgroup = Colgroup(*params)
+fun `datalist`(vararg params: KElement): Datalist = Datalist(params.toList())
 
-fun `data`(vararg params: KElement): Data = Data(*params)
+fun `dd`(vararg params: KElement): Dd = Dd(params.toList())
 
-fun `datalist`(vararg params: KElement): Datalist = Datalist(*params)
+fun `del`(vararg params: KElement): Del = Del(params.toList())
 
-fun `dd`(vararg params: KElement): Dd = Dd(*params)
+fun `details`(vararg params: KElement): Details = Details(params.toList())
 
-fun `del`(vararg params: KElement): Del = Del(*params)
+fun `dfn`(vararg params: KElement): Dfn = Dfn(params.toList())
 
-fun `details`(vararg params: KElement): Details = Details(*params)
+fun `dialog`(vararg params: KElement): Dialog = Dialog(params.toList())
 
-fun `dfn`(vararg params: KElement): Dfn = Dfn(*params)
+fun `div`(vararg params: KElement): Div = Div(params.toList())
 
-fun `dialog`(vararg params: KElement): Dialog = Dialog(*params)
+fun `dl`(vararg params: KElement): Dl = Dl(params.toList())
 
-fun `div`(vararg params: KElement): Div = Div(*params)
+fun `dt`(vararg params: KElement): Dt = Dt(params.toList())
 
-fun `dl`(vararg params: KElement): Dl = Dl(*params)
+fun `em`(vararg params: KElement): Em = Em(params.toList())
 
-fun `dt`(vararg params: KElement): Dt = Dt(*params)
+fun `embed`(vararg params: KElement): Embed = Embed(params.toList())
 
-fun `em`(vararg params: KElement): Em = Em(*params)
+fun `fieldset`(vararg params: KElement): Fieldset = Fieldset(params.toList())
 
-fun `embed`(vararg params: KElement): Embed = Embed(*params)
+fun `figcaption`(vararg params: KElement): Figcaption = Figcaption(params.toList())
 
-fun `fieldset`(vararg params: KElement): Fieldset = Fieldset(*params)
+fun `figure`(vararg params: KElement): Figure = Figure(params.toList())
 
-fun `figcaption`(vararg params: KElement): Figcaption = Figcaption(*params)
+fun `footer`(vararg params: KElement): Footer = Footer(params.toList())
 
-fun `figure`(vararg params: KElement): Figure = Figure(*params)
+fun `form`(vararg params: KElement): Form = Form(params.toList())
 
-fun `footer`(vararg params: KElement): Footer = Footer(*params)
+fun `h1`(vararg params: KElement): H1 = H1(params.toList())
 
-fun `form`(vararg params: KElement): Form = Form(*params)
+fun `h2`(vararg params: KElement): H2 = H2(params.toList())
 
-fun `h1`(vararg params: KElement): H1 = H1(*params)
+fun `h3`(vararg params: KElement): H3 = H3(params.toList())
 
-fun `h2`(vararg params: KElement): H2 = H2(*params)
+fun `h4`(vararg params: KElement): H4 = H4(params.toList())
 
-fun `h3`(vararg params: KElement): H3 = H3(*params)
+fun `h5`(vararg params: KElement): H5 = H5(params.toList())
 
-fun `h4`(vararg params: KElement): H4 = H4(*params)
+fun `h6`(vararg params: KElement): H6 = H6(params.toList())
 
-fun `h5`(vararg params: KElement): H5 = H5(*params)
+fun `head`(vararg params: KElement): Head = Head(params.toList())
 
-fun `h6`(vararg params: KElement): H6 = H6(*params)
+fun `header`(vararg params: KElement): Header = Header(params.toList())
 
-fun `head`(vararg params: KElement): Head = Head(*params)
+fun `hgroup`(vararg params: KElement): Hgroup = Hgroup(params.toList())
 
-fun `header`(vararg params: KElement): Header = Header(*params)
+fun `hr`(vararg params: KElement): Hr = Hr(params.toList())
 
-fun `hgroup`(vararg params: KElement): Hgroup = Hgroup(*params)
+fun `html`(vararg params: KElement): Html = Html(params.toList())
 
-fun `hr`(vararg params: KElement): Hr = Hr(*params)
+fun `i`(vararg params: KElement): I = I(params.toList())
 
-fun `html`(vararg params: KElement): Html = Html(*params)
+fun `iframe`(vararg params: KElement): Iframe = Iframe(params.toList())
 
-fun `i`(vararg params: KElement): I = I(*params)
+fun `img`(vararg params: KElement): Img = Img(params.toList())
 
-fun `iframe`(vararg params: KElement): Iframe = Iframe(*params)
+fun `input`(vararg params: KElement): Input = Input(params.toList())
 
-fun `img`(vararg params: KElement): Img = Img(*params)
+fun `ins`(vararg params: KElement): Ins = Ins(params.toList())
 
-fun `input`(vararg params: KElement): Input = Input(*params)
+fun `kbd`(vararg params: KElement): Kbd = Kbd(params.toList())
 
-fun `ins`(vararg params: KElement): Ins = Ins(*params)
+fun `label`(vararg params: KElement): Label = Label(params.toList())
 
-fun `kbd`(vararg params: KElement): Kbd = Kbd(*params)
+fun `legend`(vararg params: KElement): Legend = Legend(params.toList())
 
-fun `label`(vararg params: KElement): Label = Label(*params)
+fun `li`(vararg params: KElement): Li = Li(params.toList())
 
-fun `legend`(vararg params: KElement): Legend = Legend(*params)
+fun `link`(vararg params: KElement): Link = Link(params.toList())
 
-fun `li`(vararg params: KElement): Li = Li(*params)
+fun `main`(vararg params: KElement): Main = Main(params.toList())
 
-fun `link`(vararg params: KElement): Link = Link(*params)
+fun `map_`(vararg params: KElement): Map_ = Map_(params.toList())
 
-fun `main`(vararg params: KElement): Main = Main(*params)
+fun `mark`(vararg params: KElement): Mark = Mark(params.toList())
 
-fun `map_`(vararg params: KElement): Map_ = Map_(*params)
+fun `menu`(vararg params: KElement): Menu = Menu(params.toList())
 
-fun `mark`(vararg params: KElement): Mark = Mark(*params)
+fun `menuitem`(vararg params: KElement): Menuitem = Menuitem(params.toList())
 
-fun `menu`(vararg params: KElement): Menu = Menu(*params)
+fun `meta`(vararg params: KElement): Meta = Meta(params.toList())
 
-fun `menuitem`(vararg params: KElement): Menuitem = Menuitem(*params)
+fun `meter`(vararg params: KElement): Meter = Meter(params.toList())
 
-fun `meta`(vararg params: KElement): Meta = Meta(*params)
+fun `nav`(vararg params: KElement): Nav = Nav(params.toList())
 
-fun `meter`(vararg params: KElement): Meter = Meter(*params)
+fun `nobr`(vararg params: KElement): Nobr = Nobr(params.toList())
 
-fun `nav`(vararg params: KElement): Nav = Nav(*params)
+fun `noframes`(vararg params: KElement): Noframes = Noframes(params.toList())
 
-fun `nobr`(vararg params: KElement): Nobr = Nobr(*params)
+fun `noscript`(vararg params: KElement): Noscript = Noscript(params.toList())
 
-fun `noframes`(vararg params: KElement): Noframes = Noframes(*params)
+fun `object`(vararg params: KElement): Object = Object(params.toList())
 
-fun `noscript`(vararg params: KElement): Noscript = Noscript(*params)
+fun `ol`(vararg params: KElement): Ol = Ol(params.toList())
 
-fun `object`(vararg params: KElement): Object = Object(*params)
+fun `optgroup`(vararg params: KElement): Optgroup = Optgroup(params.toList())
 
-fun `ol`(vararg params: KElement): Ol = Ol(*params)
+fun `option`(vararg params: KElement): Option = Option(params.toList())
 
-fun `optgroup`(vararg params: KElement): Optgroup = Optgroup(*params)
+fun `output`(vararg params: KElement): Output = Output(params.toList())
 
-fun `option`(vararg params: KElement): Option = Option(*params)
+fun `p`(vararg params: KElement): P = P(params.toList())
 
-fun `output`(vararg params: KElement): Output = Output(*params)
+fun `param`(vararg params: KElement): Param = Param(params.toList())
 
-fun `p`(vararg params: KElement): P = P(*params)
+fun `picture`(vararg params: KElement): Picture = Picture(params.toList())
 
-fun `param`(vararg params: KElement): Param = Param(*params)
+fun `pre`(vararg params: KElement): Pre = Pre(params.toList())
 
-fun `picture`(vararg params: KElement): Picture = Picture(*params)
+fun `progress`(vararg params: KElement): Progress = Progress(params.toList())
 
-fun `pre`(vararg params: KElement): Pre = Pre(*params)
+fun `q`(vararg params: KElement): Q = Q(params.toList())
 
-fun `progress`(vararg params: KElement): Progress = Progress(*params)
+fun `rp`(vararg params: KElement): Rp = Rp(params.toList())
 
-fun `q`(vararg params: KElement): Q = Q(*params)
+fun `rt`(vararg params: KElement): Rt = Rt(params.toList())
 
-fun `rp`(vararg params: KElement): Rp = Rp(*params)
+fun `rtc`(vararg params: KElement): Rtc = Rtc(params.toList())
 
-fun `rt`(vararg params: KElement): Rt = Rt(*params)
+fun `ruby`(vararg params: KElement): Ruby = Ruby(params.toList())
 
-fun `rtc`(vararg params: KElement): Rtc = Rtc(*params)
+fun `s`(vararg params: KElement): S = S(params.toList())
 
-fun `ruby`(vararg params: KElement): Ruby = Ruby(*params)
+fun `samp`(vararg params: KElement): Samp = Samp(params.toList())
 
-fun `s`(vararg params: KElement): S = S(*params)
+fun `script`(vararg params: KElement): Script = Script(params.toList())
 
-fun `samp`(vararg params: KElement): Samp = Samp(*params)
+fun `section`(vararg params: KElement): Section = Section(params.toList())
 
-fun `script`(vararg params: KElement): Script = Script(*params)
+fun `select`(vararg params: KElement): Select = Select(params.toList())
 
-fun `section`(vararg params: KElement): Section = Section(*params)
+fun `slot`(vararg params: KElement): Slot = Slot(params.toList())
 
-fun `select`(vararg params: KElement): Select = Select(*params)
+fun `small`(vararg params: KElement): Small = Small(params.toList())
 
-fun `slot`(vararg params: KElement): Slot = Slot(*params)
+fun `source`(vararg params: KElement): Source = Source(params.toList())
 
-fun `small`(vararg params: KElement): Small = Small(*params)
+fun `span`(vararg params: KElement): Span = Span(params.toList())
 
-fun `source`(vararg params: KElement): Source = Source(*params)
+fun `strong`(vararg params: KElement): Strong = Strong(params.toList())
 
-fun `span`(vararg params: KElement): Span = Span(*params)
+fun `style`(vararg params: KElement): Style = Style(params.toList())
 
-fun `strong`(vararg params: KElement): Strong = Strong(*params)
+fun `sub`(vararg params: KElement): Sub = Sub(params.toList())
 
-fun `style`(vararg params: KElement): Style = Style(*params)
+fun `summary`(vararg params: KElement): Summary = Summary(params.toList())
 
-fun `sub`(vararg params: KElement): Sub = Sub(*params)
+fun `sup`(vararg params: KElement): Sup = Sup(params.toList())
 
-fun `summary`(vararg params: KElement): Summary = Summary(*params)
+fun `table`(vararg params: KElement): Table = Table(params.toList())
 
-fun `sup`(vararg params: KElement): Sup = Sup(*params)
+fun `tbody`(vararg params: KElement): Tbody = Tbody(params.toList())
 
-fun `table`(vararg params: KElement): Table = Table(*params)
+fun `td`(vararg params: KElement): Td = Td(params.toList())
 
-fun `tbody`(vararg params: KElement): Tbody = Tbody(*params)
+fun `template`(vararg params: KElement): Template = Template(params.toList())
 
-fun `td`(vararg params: KElement): Td = Td(*params)
+fun `textarea`(vararg params: KElement): Textarea = Textarea(params.toList())
 
-fun `template`(vararg params: KElement): Template = Template(*params)
+fun `tfoot`(vararg params: KElement): Tfoot = Tfoot(params.toList())
 
-fun `textarea`(vararg params: KElement): Textarea = Textarea(*params)
+fun `th`(vararg params: KElement): Th = Th(params.toList())
 
-fun `tfoot`(vararg params: KElement): Tfoot = Tfoot(*params)
+fun `thead`(vararg params: KElement): Thead = Thead(params.toList())
 
-fun `th`(vararg params: KElement): Th = Th(*params)
+fun `time`(vararg params: KElement): Time = Time(params.toList())
 
-fun `thead`(vararg params: KElement): Thead = Thead(*params)
+fun `title`(vararg params: KElement): Title = Title(params.toList())
 
-fun `time`(vararg params: KElement): Time = Time(*params)
+fun `tr`(vararg params: KElement): Tr = Tr(params.toList())
 
-fun `title`(vararg params: KElement): Title = Title(*params)
+fun `track`(vararg params: KElement): Track = Track(params.toList())
 
-fun `tr`(vararg params: KElement): Tr = Tr(*params)
+fun `u`(vararg params: KElement): U = U(params.toList())
 
-fun `track`(vararg params: KElement): Track = Track(*params)
+fun `ul`(vararg params: KElement): Ul = Ul(params.toList())
 
-fun `u`(vararg params: KElement): U = U(*params)
+fun `var`(vararg params: KElement): Var = Var(params.toList())
 
-fun `ul`(vararg params: KElement): Ul = Ul(*params)
+fun `video`(vararg params: KElement): Video = Video(params.toList())
 
-fun `var`(vararg params: KElement): Var = Var(*params)
-
-fun `video`(vararg params: KElement): Video = Video(*params)
-
-fun `wbr`(vararg params: KElement): Wbr = Wbr(*params)
+fun `wbr`(vararg params: KElement): Wbr = Wbr(params.toList())
 
