@@ -5,7 +5,9 @@ import com.natpryce.hamkrest.equalTo
 import org.junit.Test
 import org.tiestvilee.kaychtml.*
 import org.tiestvilee.kaychtml.impl.Doctype
-import org.tiestvilee.kaychtml.impl.KTag
+import org.tiestvilee.kaychtml.impl.KNoop
+import org.tiestvilee.kaychtml.impl.elements
+import org.tiestvilee.kaychtml.impl.s
 import kotlin.test.fail
 
 class KaychTMLCompactFormatterTest {
@@ -41,19 +43,19 @@ class KaychTMLCompactFormatterTest {
 
     @Test
     fun `Outputs body text`() {
-        assertThat(html("This is some inner text").toCompactHtml(),
+        assertThat(html("This is some inner text".s).toCompactHtml(),
             equalTo("<html>This is some inner text</html>"))
     }
 
     @Test
     fun `Outputs inner tag`() {
-        assertThat(html("This is some inner text", body("user sees this")).toCompactHtml(),
+        assertThat(html("This is some inner text".s, body("user sees this".s)).toCompactHtml(),
             equalTo("<html>This is some inner text<body>user sees this</body></html>"))
     }
 
     @Test
     fun `copes with lists of stuff`() {
-        val body = body("a list", ul(listOf(li("first"), li("second"))))
+        val body = body("a list".s, ul(elements(li("first".s), li("second".s))))
         assertThat(body.toCompactHtml(),
             equalTo("<body>a list<ul>" +
                 "<li>first</li>" +
@@ -64,7 +66,7 @@ class KaychTMLCompactFormatterTest {
 
     @Test
     fun `doctypes are special`() {
-        val body = doctype(attr("html"), html(body("some text")))
+        val body = doctype(attr("html"), html(body("some text".s)))
         assertThat(body.toCompactHtml(),
             equalTo("<!DOCTYPE html>" +
                 "<html>" +
@@ -75,7 +77,7 @@ class KaychTMLCompactFormatterTest {
     @Test
     fun `empty tags must be empty`() {
         try {
-            body(img("src" attr "http://wherever.com", "contents", "alt" attr "a shoe"))
+            body(img("src" attr "http://wherever.com", "contents".s, "alt" attr "a shoe"))
             fail("Empty tags must be empty")
         } catch (e: IllegalArgumentException) {
             assertThat(e.message, equalTo("Tag 'img' must be empty"))
@@ -84,7 +86,7 @@ class KaychTMLCompactFormatterTest {
 
     @Test
     fun `empty tags render in a special way`() {
-        val body = body("some text", img("src" attr "http://wherever.com"), b())
+        val body = body("some text".s, img("src" attr "http://wherever.com"), b())
         assertThat(body.toCompactHtml(),
             equalTo(
                 """<body>some text<img src="http://wherever.com"><b></b></body>"""))
@@ -122,28 +124,28 @@ class KaychTMLCompactFormatterTest {
     private fun biggerHtml(conflicts: List<Conflict>, scientists: List<Scientist>): Doctype {
         return doctype(attr("html"),
             html(
-                head(style(conflictsStyles)),
+                head(style(conflictsStyles.s)),
                 body(
                     if (conflicts.isNotEmpty()) {
-                        listOf(
-                            h1("Potential conflicts"),
+                        elements(
+                            h1("Potential conflicts".s),
                             ul(id("conflicts"),
                                 conflicts.map { conflict ->
-                                    li(cl("conflict"), span(cl("author"), conflict.author.name), "worked with ",
+                                    li(cl("conflict"), span(cl("author"), conflict.author.name.s), "worked with ".s,
                                         ul(
-                                            conflict.reviewers.map { reviewer -> li(reviewer.name) }
+                                            conflict.reviewers.map { reviewer -> li(reviewer.name.s) }.elements()
                                         ))
-                                }))
+                                }.elements()))
                     } else {
-                        h1("no conflicts found")
+                        h1("no conflicts found".s)
                     },
                     if (scientists.isNotEmpty()) {
-                        listOf(
-                            h1("Couldn't find the following scientists"),
-                            ul(id("missingScientists"), scientists.map { scientist -> li(scientist.name) })
+                        elements(
+                            h1("Couldn't find the following scientists".s),
+                            ul(id("missingScientists"), scientists.map { scientist -> li(scientist.name.s) }.elements())
                         )
                     } else {
-                        listOf<KTag>()
+                        KNoop()
                     }
                 )
             ))

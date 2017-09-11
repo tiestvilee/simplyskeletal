@@ -1,5 +1,6 @@
 package org.tiestvilee.kaychtml
 
+import org.tiestvilee.kaychtml.impl.KString
 import org.tiestvilee.kaychtml.impl.KTag
 
 object SimpleFormatter {
@@ -97,7 +98,7 @@ object SimpleFormatter {
         tag.content
             .flatMap {
                 when (it) {
-                    is String -> listOf(Unbreakable(it))
+                    is KString -> listOf(Unbreakable(it.contents))
                     is KTag -> toChunks(it)
                     else -> throw IllegalArgumentException("Don't understand item: " + it.javaClass.simpleName)
                 }
@@ -125,7 +126,7 @@ object CompactFormatter {
         tag.content
             .map {
                 when (it) {
-                    is String -> it
+                    is KString -> it.contents
                     is KTag -> toHtml(it)
                     else -> throw IllegalArgumentException("Don't understand item: " + it.javaClass.simpleName)
                 }

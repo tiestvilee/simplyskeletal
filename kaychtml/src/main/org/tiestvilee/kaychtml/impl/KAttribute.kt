@@ -1,6 +1,6 @@
 package org.tiestvilee.kaychtml.impl
 
-open class KAttribute(val name: String, val value: String) {
+open class KAttribute(val name: String, val value: String) : KElement {
     fun asPair(): Pair<String, String> = Pair(name, value)
 }
 
