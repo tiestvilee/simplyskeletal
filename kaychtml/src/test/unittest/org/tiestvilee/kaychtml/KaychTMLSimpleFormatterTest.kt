@@ -2,10 +2,10 @@ package unittest.org.tiestvilee.kaychtml
 
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
+import org.junit.Assert.fail
 import org.junit.Test
 import org.tiestvilee.kaychtml.*
 import org.tiestvilee.kaychtml.impl.*
-import kotlin.test.fail
 
 class KaychTMLSimpleFormatterTest {
     @Test

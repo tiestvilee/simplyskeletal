@@ -8,3 +8,6 @@
 
 [httpserver]
  port = 0
+
+[project]
+ ide = intellij

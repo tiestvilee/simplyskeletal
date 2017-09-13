@@ -13,9 +13,9 @@ import com.googlecode.utterlyidle.dsl.BindingBuilder
 import com.googlecode.utterlyidle.modules.ResourcesModule
 import org.tiestvilee.kaychtml.*
 import org.tiestvilee.kaychtml.impl.KTag
-import org.tiestvilee.multipartform.StreamingMultipartFormParts
-import java.io.File
-import java.io.FileOutputStream
+import org.tiestvilee.kaychtml.impl.attr
+import org.tiestvilee.kaychtml.impl.cl
+import org.tiestvilee.kaychtml.impl.s
 import java.lang.reflect.Type
 import java.nio.charset.StandardCharsets
 import java.time.ZonedDateTime
@@ -79,20 +79,20 @@ class HelloWorldResource {
                     div(cl("col-md-4")),
                     div(cl("col-md-4"),
                         div(cl("fluid card"),
-                            div(cl("section"), h3("Hello World")),
+                            div(cl("section"), h3("Hello World".s)),
                             form("method" attr "POST", "action" attr "", "enctype" attr "multipart/form-data",
                                 fieldset(
-                                    legend("Create a new article"),
-                                    formRow(label("for" attr "articleType", "Article Type"),
+                                    legend("Create a new article".s),
+                                    formRow(label("for" attr "articleType", "Article Type".s),
                                         select("id" attr "articleType", "name" attr "articleType",
-                                            option("review"),
-                                            option("obituary")
+                                            option("review".s),
+                                            option("obituary".s)
                                         )),
-                                    formRow(label("for" attr "uploadManuscript", "Upload Manuscript"),
+                                    formRow(label("for" attr "uploadManuscript", "Upload Manuscript".s),
                                         input("type" attr "file", "name" attr "uploadManuscript", "id" attr "uploadManuscript", attr("multiple")),
-                                        label("for" attr "uploadManuscript", cl("button"), "Upload")
+                                        label("for" attr "uploadManuscript", cl("button"), "Upload".s)
                                     ),
-                                    formRow(span(), button("Create", "type" attr "submit"))
+                                    formRow(span(), button("Create".s, "type" attr "submit"))
                                 )
                             )
                         )))
@@ -114,23 +114,23 @@ class HelloWorldResource {
         return doctype(attr("html"),
             html(
                 head(
-                    title(title),
+                    title(title.s),
                     link("rel" attr "stylesheet", "href" attr "https://gitcdn.link/repo/Chalarangelo/mini.css/master/dist/mini-default.min.css"),
-                    style(styles)
+                    style(styles.s)
                 ),
                 body(
                     header(cl("sticky row"),
                         div(cl("col-sm col-md-10, col-md-offset-1"),
-                            a("href" attr "/editor/manuscriptTable", "role" attr "button", "Manuscripts"),
-                            a("href" attr "asXml", "role" attr "button", "As XML"),
-                            a("href" attr "asPdf", "role" attr "button", "As PDF")
+                            a("href" attr "/editor/manuscriptTable", "role" attr "button", "Manuscripts".s),
+                            a("href" attr "asXml", "role" attr "button", "As XML".s),
+                            a("href" attr "asPdf", "role" attr "button", "As PDF".s)
                         )),
                     div(cl("container"), content),
                     footer(
                         div(cl("col-sm col-md-10 col-md-offset-1"),
-                            p("Copyright &copy; SpringerNature ${ZonedDateTime.now().year}"))
+                            p("Copyright © SpringerNature ${ZonedDateTime.now().year}".s))
                     ),
-                    script(scripts)
+                    script(scripts.s)
                 )))
     }
 
@@ -149,32 +149,32 @@ class HelloWorldResource {
         val contentType = request.header("Content-Type").get()
         val boundary = contentType.substring(contentType.indexOf("boundary=") + "boundary=".length).toByteArray(StandardCharsets.UTF_8)
         val body = request.entity().inputStream()
-        val parts = StreamingMultipartFormParts.parse(boundary, body, StandardCharsets.UTF_8)
-
-        for (part in parts) {
-            if (part.isFormField) {
-                println("Got ${part.fieldName}, value ${part.contentsAsString}")
-            } else {
-                val fileName = if (part.fileName.length < 3) "too-short" else part.fileName
-                val outputFile = File.createTempFile(fileName, "", File("./out"))
-                println("Got ${part.fieldName}, writing to $outputFile")
-                var count = 0
-                FileOutputStream(outputFile).use { out ->
-                    while (true) {
-                        val aByte = part.inputStream.read()
-                        if (aByte < 0) {
-                            break
-                        }
-                        count++
-                        out.write(aByte)
-                        if ((count % 1000000) == 0) {
-                            print(".")
-                        }
-                    }
-                }
-                println("finished")
-            }
-        }
+//        val parts = StreamingMultipartFormParts.parse(boundary, body, StandardCharsets.UTF_8)
+//
+//        for (part in parts) {
+//            if (part.isFormField) {
+//                println("Got ${part.fieldName}, value ${part.contentsAsString}")
+//            } else {
+//                val fileName = if (part.fileName.length < 3) "too-short" else part.fileName
+//                val outputFile = File.createTempFile(fileName, "", File("./out"))
+//                println("Got ${part.fieldName}, writing to $outputFile")
+//                var count = 0
+//                FileOutputStream(outputFile).use { out ->
+//                    while (true) {
+//                        val aByte = part.inputStream.read()
+//                        if (aByte < 0) {
+//                            break
+//                        }
+//                        count++
+//                        out.write(aByte)
+//                        if ((count % 1000000) == 0) {
+//                            print(".")
+//                        }
+//                    }
+//                }
+//                println("finished")
+//            }
+//        }
         return Response.response(OK)
 //        println("<<$request>>")
 //        write(request.entity().toBytes(), File("example.multipart"))
@@ -188,7 +188,7 @@ class HelloWorldResource {
     fun withParam(@PathParam("id") id: String): Response {
         println(id)
         return Response.response(OK).entity(
-            page("Uploaded", h1(id)).toCompactHtml()
+            page("Uploaded", h1(id.s)).toCompactHtml()
         )
     }
 }

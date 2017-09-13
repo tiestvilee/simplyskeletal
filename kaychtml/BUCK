@@ -1,3 +1,9 @@
 add_build_file_dep("//BUCK")
 
-kotlin("kaychtml", None, [])
+kotlin(
+    "kaychtml",
+    None,
+    [
+        "//:kaychtml-deps"
+    ]
+)

@@ -17,3 +17,7 @@ mvn:org.eclipse.jetty:jetty-server:jar|sources:9.2.12.v20150709
 mvn:org.eclipse.jetty:jetty-servlet:jar|sources:9.2.12.v20150709
 mvn:org.eclipse.jetty:jetty-webapp:jar|sources:9.2.12.v20150709
 mvn:org.eclipse.jetty:jetty-security:jar|sources:9.2.12.v20150709
+
+# for Kaychtml
+mvn:org.apache.commons:commons-lang3:jar|sources:3.6
+mvn:org.apache.commons:commons-text:jar|sources:1.1

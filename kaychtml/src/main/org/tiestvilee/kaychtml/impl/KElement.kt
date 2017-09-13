@@ -1,9 +1,11 @@
 package org.tiestvilee.kaychtml.impl
 
+import org.apache.commons.text.StringEscapeUtils.escapeHtml4
+
 interface KElement
 
 val String.s: KElement
-    get() = KString(this)
+    get() = KString(escapeHtml4(this))
 
 class KString(val contents: String) : KElement
 

@@ -2,10 +2,10 @@ package unittest.org.tiestvilee.kaychtml
 
 import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
+import org.junit.Assert.fail
 import org.junit.Test
 import org.tiestvilee.kaychtml.*
 import org.tiestvilee.kaychtml.impl.*
-import kotlin.test.fail
 
 class KaychTMLCompactFormatterTest {
     @Test
@@ -34,14 +34,15 @@ class KaychTMLCompactFormatterTest {
 
     @Test
     fun `Outputs a single tag with lots of attributes`() {
-        assertThat(html(id("the-id"), cl("className"), "data-test" attr "another attr", cl("otherClassName")).toCompactHtml(),
-            equalTo("<html class=\"className otherClassName\" data-test=\"another attr\" id=\"the-id\"></html>"))
+        assertThat(html(id("the-id"), cl("className"), "data-test" attr "This is an \"attribute\" <but this isn't a tag>", cl("otherClassName")).toCompactHtml(),
+            equalTo("<html class=\"className otherClassName\" data-test=\"This is an &quot;attribute&quot; &lt;but this isn't a tag&gt;\" id=\"the-id\"></html>"))
     }
 
     @Test
     fun `Outputs body text`() {
-        assertThat(html("This is some inner text".s).toCompactHtml(),
-            equalTo("<html>This is some inner text</html>"))
+        assertThat(
+            html("This is some \"inner text\" <but this isn't a tag>".s).toCompactHtml(),
+            equalTo("<html>This is some &quot;inner text&quot; &lt;but this isn't a tag&gt;</html>"))
     }
 
     @Test
@@ -76,7 +77,7 @@ class KaychTMLCompactFormatterTest {
         try {
             body(img("src" attr "http://wherever.com", "contents".s, "alt" attr "a shoe"))
             fail("Empty tags must be empty")
-        } catch (e: IllegalArgumentException) {
+        } catch (e: Throwable) {
             assertThat(e.message, equalTo("Tag 'img' must be empty"))
         }
     }
